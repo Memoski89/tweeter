@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  height: 400px;
+  background-color: #fc8c03;
+  color: #ffffff;
+  background-color: #fc8c03;
+  background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.Avatar {
+  display: flex;
+  justify-content: center;
+}
+.Name {
+  display: flex;
+  justify-content: center;
+}
+.space {
+  font-family: "Source Sans Pro", sans-serif;
+  width: 2px;
+}
