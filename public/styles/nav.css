@@ -1,13 +1,16 @@
+/* fixed the navbar to always be at the top of the page */
 nav {
   height: 120px;
   color: #ffffff;
   background-color: #4056a1;
-  width: 100vw;
+  width: 100%;
   font-size: 24px;
   font-family: "Bungee", cursive;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
 }
 .logo {
   font-size: 36px;
