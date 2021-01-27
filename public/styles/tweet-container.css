@@ -1,20 +1,55 @@
-.tweet{
+.tweet {
   border: 5px solid #545149;
   display: flex;
   flex-direction: column;
+  opacity: .75;
+  padding: 10px;
   /* justify-content: space-between; */
 }
-.tweet-header{
+.tweet:hover {
+  box-shadow: 4px 4px 8px cadetblue;
+  opacity: 1;
+  cursor: pointer;
+}
+.tweet:hover .handle{
+   opacity: 1;
+}
+
+.tweet-header {
   display: flex;
   justify-content: space-between;
 }
-.tweet-footer{
+.tweet-footer {
   border-top: 5px solid #545149;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
-.tweet-message{
-  
+.handle {
+  opacity: 0;
+}
+.display-pic {
+  display: flex;
+  flex-direction: row;
+  size: 10%;
 }
 
+.tweet-pic {
+  width: 3em;
+  height: 3em;
+}
+.likes-shares{
+  flex-direction: row;
+}
+.like{
+  width: 1em;
+  height: 1em
 
+}
+.share{
+  width: 1em;
+  height: 1em
+}
+.flag{
+  width: 1em;
+  height: 1em
+}
