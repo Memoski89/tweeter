@@ -23,7 +23,8 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 .container {
-  display: flex;
+  display:flex;
+  flex-direction: column;
   align-self: center;
   width: 90%;
   margin-left: auto;

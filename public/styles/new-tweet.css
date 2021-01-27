@@ -3,14 +3,14 @@
   width: 100%;
 }
 /* same width as parent */
-form {
+.new-tweet form {
   display: block;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 1em;
 }
 /* using the same color as h2 compose tweet and putting a solid line at border bottom */
 .selector textarea {
-  
   color: #545149;
   display: block;
   background: none;
@@ -19,7 +19,7 @@ form {
   border-bottom: 5px solid #545149;
   font-weight: bold;
 }
-/* added padding to sepeate from textarea */ 
+/* added padding to sepeate from textarea */
 .operators {
   padding-top: 1em;
   font-family: "Bungee", cursive;
@@ -28,8 +28,7 @@ form {
 }
 /* button has same color and font as nav*/
 .operators button {
-  
-  background-color: #4056A1;
+  background-color: #4056a1;
   border: 0;
   color: white;
 }

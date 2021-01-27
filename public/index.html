@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -29,7 +30,7 @@
       <span class="logo">tweeter</span>
       <span class="insert"> <b>Write </b> <!-- figure out this space --><span class='space'> </span>a new tweet </span>
     </nav>
-    <header>
+    <header class = 'page-header'>
       <div class='Avatar'>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -49,6 +50,24 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section>
+        <article class= 'tweet'>
+          <header class='tweet-header'>
+            <div class ='display pic'>display pic</div> <br>
+            <div class='handle'> handle</div>
+
+          </header>
+          <h2 class='tweet-message'>hello world!</h2>
+          <footer class ='tweet-footer'>
+            <div class='date'>date</div>
+            <br>
+            <div class='likes-shares'>heart</div>
+          
+            
+
+          </footer>
+        </article>
       </section>
     </main>
   </body>
