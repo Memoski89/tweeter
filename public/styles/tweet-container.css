@@ -4,14 +4,18 @@
   flex-direction: column;
   opacity: .75;
   padding: 10px;
+  margin-bottom: 10px;
   /* justify-content: space-between; */
 }
+/* the tweet box will behave differently when hovered over */
 .tweet:hover {
   box-shadow: 4px 4px 8px cadetblue;
   opacity: 1;
   cursor: pointer;
 }
+/* specifically target the handle when hovering over the tweet */
 .tweet:hover .handle{
+  color: cadetblue;
    opacity: 1;
 }
 
@@ -32,7 +36,7 @@
   flex-direction: row;
   size: 10%;
 }
-
+/* reduce the size of the tweet pic */
 .tweet-pic {
   width: 3em;
   height: 3em;
@@ -40,6 +44,7 @@
 .likes-shares{
   flex-direction: row;
 }
+/* icon sizes smaller than display picture */
 .like{
   width: 1em;
   height: 1em
