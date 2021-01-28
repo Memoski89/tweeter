@@ -77,7 +77,8 @@ const createTweetElement = function (tweet) {
   let fakeName = tweet.user.handle;
   let date = tweet.created_at;
   // return $tweet;
-  $(".tweet-container").append(`        <article class= 'tweet'>
+  //prepend will put new tweet to the beginning of the list
+  $(".tweet-container").prepend(`<article class= 'tweet'>
   <header class='tweet-header'>
     <div class ='display-pic'>
       <img class='tweet-pic' src=${pic}> 
@@ -105,32 +106,37 @@ const createTweetElement = function (tweet) {
 $(document).ready(function () {
   $(".selector").on("submit", function (event) {
     event.preventDefault();
-    // 
+    // the get request will intialize once the post request has finished\
+    // calling on the renderTweets function within my load tweets,
+    // this will look through  the post request JSON and return the tweet 
     const loadTweet = function (){
 
         $.ajax("/tweets",{
           method: 'GET'
         })
         .then(function(result){
-          console.log(renderTweets(result))
+          renderTweets(result)
         })
       
     }
-    console.log("submitting");
-    console.log($(this).serialize());
-    console.log($(this));
-    console.log(event.target);
+
+    // this.serialize will send allow post request to be returned as an object JSON 
     const input = $(this).serialize();
-  
-    const inputBox = $(this).children("textarea");
-    console.log("this is input box ", inputBox);
-    const keyword = inputBox.val();
-    console.log("this is keyword", keyword);
-    $.ajax("/tweets/", {
-      method: "POST",
-      data: input,
-    })
-    .done(loadTweet());
-   
+    // checking before post request if input is '' or undefiend or null to prevent post request
+    const error =$('#tweet-text').val()
+    if(!error){
+      alert('Error')
+    }else if(error.length > 140){
+      alert('message over 140 characters')
+    }
+    else{
+      $.ajax("/tweets/", {
+        method: "POST",
+        data: input,
+      })
+      // this will then initilize loadTweet function
+      .done(loadTweet());
+      
+    }
   });
 });
