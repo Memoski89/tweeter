@@ -71,11 +71,11 @@ const renderTweets = function (tweets) {
 };
 
 const createTweetElement = function (tweet) {
-  let id = tweet.user.name
+  let id = tweet.user.name;
   let message = tweet.content.text;
-  let pic = tweet.user.avatars
-  let fakeName = tweet.user.handle
-  let date = tweet.created_at
+  let pic = tweet.user.avatars;
+  let fakeName = tweet.user.handle;
+  let date = tweet.created_at;
   // return $tweet;
   $(".tweet-container").append(`        <article class= 'tweet'>
   <header class='tweet-header'>
@@ -103,5 +103,42 @@ const createTweetElement = function (tweet) {
 
 $(document).ready(function () {
   renderTweets(data);
-
 });
+
+//event handler for # form
+//listen to submit
+
+$(document).ready(function () {
+  // $('selector').on('submit', function(event){
+  //   event.preventDefault()
+  //   console.log('submitting')
+  // })
+  $(".selector").on("submit", function (event) {
+    event.preventDefault();
+    console.log("submitting");
+    console.log($(this).serialize());
+    const info = $(this).serialize()
+    //target the textarea?? 
+    // const message = $(this).children('textarea[#tweet-text]')
+    // console.log(message.val())
+    $.post("/tweets", info).then(function (respond) {
+      console.log("Success: ", respond);
+      // $button.replaceWith(textarea);
+    });
+  });
+  // $('#selector').on('submit', function(event){
+  //   event.preventDefault()
+  //   console.log('submitting')
+  // })
+});
+
+/* let ajaxTry = function () {
+  $(".selector").on("submit", function () {
+    console.log("Button clicked, performing ajax call...");
+    $.ajax("textarea", { method: "POST" }).then(function (textarea) {
+      console.log("Success: ", textarea);
+      $button.replaceWith(textarea);
+    });
+  });
+};
+ */
