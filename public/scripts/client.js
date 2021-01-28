@@ -35,31 +35,31 @@
 //   $(".tweet-message").append($tweet);
 // });
 
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text:
-        "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
+// const data = [
+//   {
+//     user: {
+//       name: "Newton",
+//       avatars: "https://i.imgur.com/73hZDYK.png",
+//       handle: "@SirIsaac",
+//     },
+//     content: {
+//       text:
+//         "If I have seen further it is by standing on the shoulders of giants",
+//     },
+//     created_at: 1461116232227,
+//   },
+//   {
+//     user: {
+//       name: "Descartes",
+//       avatars: "https://i.imgur.com/nlhLi3I.png",
+//       handle: "@rd",
+//     },
+//     content: {
+//       text: "Je pense , donc je suis",
+//     },
+//     created_at: 1461113959088,
+//   },
+// ];
 
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
@@ -101,44 +101,36 @@ const createTweetElement = function (tweet) {
 </article>`);
 };
 
-$(document).ready(function () {
-  renderTweets(data);
-});
-
-//event handler for # form
-//listen to submit
 
 $(document).ready(function () {
-  // $('selector').on('submit', function(event){
-  //   event.preventDefault()
-  //   console.log('submitting')
-  // })
   $(".selector").on("submit", function (event) {
     event.preventDefault();
+    // 
+    const loadTweet = function (){
+
+        $.ajax("/tweets",{
+          method: 'GET'
+        })
+        .then(function(result){
+          console.log(renderTweets(result))
+        })
+      
+    }
     console.log("submitting");
     console.log($(this).serialize());
-    const info = $(this).serialize()
-    //target the textarea?? 
-    // const message = $(this).children('textarea[#tweet-text]')
-    // console.log(message.val())
-    $.post("/tweets", info).then(function (respond) {
-      console.log("Success: ", respond);
-      // $button.replaceWith(textarea);
-    });
+    console.log($(this));
+    console.log(event.target);
+    const input = $(this).serialize();
+  
+    const inputBox = $(this).children("textarea");
+    console.log("this is input box ", inputBox);
+    const keyword = inputBox.val();
+    console.log("this is keyword", keyword);
+    $.ajax("/tweets/", {
+      method: "POST",
+      data: input,
+    })
+    .done(loadTweet());
+   
   });
-  // $('#selector').on('submit', function(event){
-  //   event.preventDefault()
-  //   console.log('submitting')
-  // })
 });
-
-/* let ajaxTry = function () {
-  $(".selector").on("submit", function () {
-    console.log("Button clicked, performing ajax call...");
-    $.ajax("textarea", { method: "POST" }).then(function (textarea) {
-      console.log("Success: ", textarea);
-      $button.replaceWith(textarea);
-    });
-  });
-};
- */
