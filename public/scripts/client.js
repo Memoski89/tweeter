@@ -102,41 +102,43 @@ const createTweetElement = function (tweet) {
 </article>`);
 };
 
-
 $(document).ready(function () {
+  // initialize loadtweet
+  const loadTweet = function () {
+    $.ajax("/tweets", {
+      method: "GET",
+    }).then(function (result) {
+      renderTweets(result);
+    });
+  };
+  // runs on page loadup and subsequent reloads
+  loadTweet();
   $(".selector").on("submit", function (event) {
     event.preventDefault();
     // the get request will intialize once the post request has finished\
     // calling on the renderTweets function within my load tweets,
-    // this will look through  the post request JSON and return the tweet 
-    const loadTweet = function (){
+    // this will look through  the post request JSON and return the tweet
+    loadTweet();
 
-        $.ajax("/tweets",{
-          method: 'GET'
-        })
-        .then(function(result){
-          renderTweets(result)
-        })
-      
-    }
-
-    // this.serialize will send allow post request to be returned as an object JSON 
+    // this.serialize will send allow post request to be returned as an object JSON
     const input = $(this).serialize();
     // checking before post request if input is '' or undefiend or null to prevent post request
-    const error =$('#tweet-text').val()
-    if(!error){
-      alert('Error')
-    }else if(error.length > 140){
-      alert('message over 140 characters')
-    }
-    else{
+    const error = $("#tweet-text").val();
+    if (!error) {
+      alert("Error");
+    } else if (error.length > 140) {
+      alert("message over 140 characters");
+    } else {
       $.ajax("/tweets/", {
         method: "POST",
         data: input,
       })
-      // this will then initilize loadTweet function
-      .done(loadTweet());
-      
+        // this will then initilize loadTweet function
+        .done(function () {
+          // upon POST request loadtweet function running and tweet-text area cleared into empty string
+          loadTweet();
+          $("#tweet-text").val("");
+        });
     }
   });
 });
