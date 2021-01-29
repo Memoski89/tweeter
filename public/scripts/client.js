@@ -60,6 +60,7 @@
 //     created_at: 1461113959088,
 //   },
 // ];
+// this function is used in the createTweetElement to return html type strings as tweets and not manipulate current html docs
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -128,13 +129,27 @@ $(document).ready(function () {
     // this.serialize will send allow post request to be returned as an object JSON
     const input = $(this).serialize();
     // checking before post request if input is '' or undefiend or null to prevent post request
-
+  
     const error = $("#tweet-text").val();
     if (!error) {
-      alert("Error");
+      $(this)
+      .siblings('#error-messages').text('🔺🔺🔺🔺 Please just put one thing anything I have worked so hard on this please!!! 🔺🔺🔺🔺 ')
+      $(this)
+      .siblings('#error-messages').slideDown(400)
+
     } else if (error.length > 140) {
-      alert("message over 140 characters");
+      // $(this)
+      // .siblings('.error-messages')
+      // .css('visibility', 'visible')
+      $(this)
+      .siblings('#error-messages').text('🔺🔺🔺🔺 Whoa Whoa Whoa!!! Keep it less than 140! Are you trying to break 🔺🔺🔺🔺 ')
+      $(this)
+      .siblings('#error-messages').slideDown(400)
+
+
+      // alert("message over 140 characters");
     } else {
+
       $.ajax("/tweets/", {
         method: "POST",
         data: input,
@@ -143,7 +158,9 @@ $(document).ready(function () {
         .done(function () {
           // upon POST request loadtweet function running and tweet-text area cleared into empty string
           loadTweet();
-          $("#tweet-text").val("");
+          $("#tweet-text").val(""); 
+          $('#error-messages').slideUp(400);
+
         });
     }
   });

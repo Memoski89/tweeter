@@ -42,7 +42,12 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <aside id="error-messages">
+          <!-- <p class='empty'>please insert a character</p> -->
+          <!-- <p class='length'>tooo long</p> -->
+        </aside>
         <h2>Compose Tweet</h2>
+
         <form class ='selector' method = 'POST' action = '/tweets/'>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class ='operators'>
