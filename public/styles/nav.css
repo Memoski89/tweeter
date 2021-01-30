@@ -1,5 +1,6 @@
 /* fixed the navbar to always be at the top of the page */
 nav {
+  z-index: 9999;
   height: 120px;
   color: #ffffff;
   background-color: #4056a1;
@@ -16,11 +17,19 @@ nav {
   font-size: 36px;
 }
 .insert {
+  flex-direction: column;
   display: flex;
   align-self: center;
   font-size: 12px;
   font-family: "Source Sans Pro", sans-serif;
 }
-.space {
-  width: 2px;
+.insert:hover{
+  transform: scale(1.2);
+}
+
+.down-arrow {
+  align-self: inherit;
+  padding: 2px;
+  width: 2em;
+  height: 2em;
 }

@@ -1,8 +1,17 @@
+/* .container{
+  display: none;
+} */
+.new-tweet {
+  display: none;
+}
+.tweet-container {
+  padding-top: 2em;
+}
 .tweet {
   border: 5px solid #545149;
   display: flex;
   flex-direction: column;
-  opacity: .75;
+  opacity: 0.75;
   padding: 10px;
   margin-bottom: 10px;
   /* justify-content: space-between; */
@@ -14,9 +23,9 @@
   cursor: pointer;
 }
 /* specifically target the handle when hovering over the tweet */
-.tweet:hover .handle{
+.tweet:hover .handle {
   color: cadetblue;
-   opacity: 1;
+  opacity: 1;
 }
 
 .tweet-header {
@@ -41,24 +50,23 @@
   width: 3em;
   height: 3em;
 }
-.likes-shares{
+.likes-shares {
   flex-direction: row;
 }
 /* icon sizes smaller than display picture */
-.like{
+.like {
   width: 1em;
-  height: 1em
-
+  height: 1em;
 }
-.share{
+.share {
   width: 1em;
-  height: 1em
+  height: 1em;
 }
-.flag{
+.flag {
   width: 1em;
-  height: 1em
+  height: 1em;
 }
-#error-messages{
+#error-messages {
   margin: 1em;
   width: 100%;
   display: flex;
@@ -66,5 +74,4 @@
   color: red;
   border: 5px solid red;
   display: none;
-
 }

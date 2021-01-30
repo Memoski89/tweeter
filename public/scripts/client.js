@@ -6,7 +6,6 @@
 
 $(document).ready(function () {
   // this function is used in the createTweetElement to return html type strings as tweets and not manipulate current html docs
-
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -32,7 +31,7 @@ $(document).ready(function () {
     let fakeName = tweet.user.handle;
     let date = tweet.created_at;
     //moment external script implemented
-    
+
     //prepend will put new tweet to the beginning of the list
     return $(
       `<article class= 'tweet'>
@@ -113,4 +112,5 @@ $(document).ready(function () {
         });
     }
   });
+  loadTweet();
 });
