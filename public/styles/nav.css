@@ -23,7 +23,7 @@ nav {
   font-size: 12px;
   font-family: "Source Sans Pro", sans-serif;
 }
-.insert:hover{
+.insert:hover {
   transform: scale(1.2);
 }
 

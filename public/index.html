@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/media-types.css" type="text/css" />
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!--  moment will give me a tweet date instead of a random number -->
@@ -25,6 +27,7 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/write-tweet.js"></script>
+    <script type="text/javascript" src="/scripts/nav-scroll.js"></script>
   </head>
 
   <body>
@@ -33,22 +36,22 @@
       <span class="logo">tweeter</span>
       <span id='clicker' class="insert"> <p class='text'><b>Write </b>a new tweet</p> <img class='down-arrow' src='/images/down-arrow.png'></span>
     </nav>
+    <div class='content-scroll'>
+    <div class ='respector'>
     <header class = 'page-header'>
-      <div class='Avatar'>
-          <img src="/images/profile-hex.png"> 
-      </div>
+      
+          <img class='profile-pic' src="/images/profile-hex.png"> 
+
       <br>
-      <div class='Name'>
-          <h2><b>Amy</b><!-- figure out this space --><span class='space'> Mansell</h2>
-      </div>
+      
+          <h2 class= 'name'><b>Amy Mansell</b></h2>
+      
     </header>
+    </div>
     <!-- Page-specific (main) content here -->
     <main id='container'class="container">
       <section id='new-tweet' class="new-tweet">
         <aside id="error-messages">
-          <!-- <p class='empty'>please insert a character</p> -->
-          <!-- <p class='length'>tooo long</p> -->
-          abcs
         </aside>
         <h2>Compose Tweet</h2>
 
@@ -61,7 +64,7 @@
         </form>
       </section>
       <section class ='tweet-container'>
-        <!-- <article class= 'tweet'>
+        <!-- <article class= 'tweet'> keeping this here just in case this code is lost!!!!
           <header class='tweet-header'>
             <div class ='display-pic'>
               <img class='tweet-pic' src="/images/profile-hex.png"> 
@@ -83,6 +86,7 @@
             
           </footer>
         </article> -->
+      </div>
       </section> 
     </main>
   </body>

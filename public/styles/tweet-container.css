@@ -1,12 +1,7 @@
-/* .container{
-  display: none;
-} */
 .new-tweet {
   display: none;
 }
-.tweet-container {
-  padding-top: 2em;
-}
+
 .tweet {
   border: 5px solid #545149;
   display: flex;

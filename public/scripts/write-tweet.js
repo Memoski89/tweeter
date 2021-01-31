@@ -3,8 +3,9 @@ $(document).ready(function () {
     $(this)
       .parent("nav")
       .parent("body")
+      .children(".content-scroll")
       .children(".container")
-      .children('.new-tweet')
+      .children(".new-tweet")
       .slideToggle(600);
   });
 });
