@@ -27,10 +27,12 @@
   display: flex;
   justify-content: space-between;
 }
+/*  padding to the top to give distance from the borderline */
 .tweet-footer {
   border-top: 5px solid #545149;
   display: flex;
   justify-content: space-between;
+  padding-top: .5em;
 }
 .handle {
   opacity: 0;
@@ -53,9 +55,13 @@
   width: 1em;
   height: 1em;
 }
+/* margins  to give distance between icons */
 .share {
   width: 1em;
   height: 1em;
+  margin-left: 10px;
+  margin-right: 10px;
+
 }
 .flag {
   width: 1em;
